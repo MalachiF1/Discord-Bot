@@ -5,7 +5,7 @@ const help = channel => {
 		.setTitle('Commands')
 		.setDescription(
 			`
-    \`!help\` : lists all this bot\'s commands.\n
+    \`!help\` : lists all Happy Driod\'s commands.\n
     \`!hangman\` : starts a game of hangman in the channel.\n
     \`!tictactoe\` : starts a game of tic-tac-toe in the channel.\n
     \`!connect4\` : starts a game of connect4 in the channel.\n
