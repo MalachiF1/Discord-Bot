@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, GuildMember } = require('discord.js');
+const { Client } = require('discord.js');
 const playHangman = require('./commands/hangman/playHangman');
 const getMeme = require('./commands/reddit/getMemes');
 const roastUser = require('./commands/reddit/roast');
@@ -17,8 +17,8 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-	const botUser = message.guild.member(client.user)
-	
+	const botUser = message.guild.member(client.user);
+
 	if (message.author.bot || !botUser.permissionsIn(message.channel).has('SEND_MESSAGES')) return;
 
 	const command = message.content.trim().toLowerCase();

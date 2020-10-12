@@ -30,7 +30,7 @@ class TicTacToe {
 			row.forEach(col => {
 				if (col === 0) counter++;
 			});
-			if (count === 9) return 'tie';
+			if (counter === 9) return 'tie';
 		});
 		counter = 0;
 
@@ -74,17 +74,25 @@ class TicTacToe {
 	}
 
 	toString() {
-		let table = this.state
-			.map(row => {
+		let table = [];
+		for (let i = 0; i < this.state.length; i++) {
+			table.push(this.state[i].slice(0));
+			table[i].unshift(i === 0 ? '1️⃣' : i === 2 ? '3️⃣' : '2️⃣');
+		}
+		table = table
+			.map((row, i) => {
 				return row
 					.map(col => {
 						if (col === 0) return '⬛';
 						if (col === 1) return '✖️';
 						if (col === 2) return '⭕';
+						return col;
 					})
 					.join('');
 			})
-			.join('\n');
+			.reverse();
+		table.push('🟦1️⃣2️⃣3️⃣');
+		table = table.join('\n');
 
 		return `\`\`\`${table}\`\`\``;
 	}

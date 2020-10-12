@@ -14,7 +14,7 @@ const playTicTactToe = async (gameChannel, host) => {
 	let ticTactToe = Math.random() > 0.5 ? new TicTactToe(host, player) : new TicTactToe(player, host);
 
 	await gameChannel.send(
-		`A tic-tac-toe game has started between ${host} and ${player}! Use "!play [row] [column]" to place a token in your desired postion (numbering goes top to bottom, left to right.). ${ticTactToe.turn} goes first. ${ticTactToe}`
+		`A tic-tac-toe game has started between ${host} and ${player}! Use "!play [row] [column]" to place a token in your desired postions. ${ticTactToe.turn} goes first. ${ticTactToe}`
 	);
 
 	while (true) {
@@ -84,7 +84,7 @@ const getPlay = async (ticTacToe, gameChannel) => {
 				!Number.isInteger(Number(pos[0])) ||
 				!Number.isInteger(Number(pos[1]))
 			) {
-				gameChannel.send('Please enter a valid column number.');
+				gameChannel.send('Please enter a valid position.');
 				return false;
 			}
 
