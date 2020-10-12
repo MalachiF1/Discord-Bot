@@ -1,5 +1,5 @@
 const eightBall = message => {
-	[command, ...question] = message.content.split(/\s+/);
+	[command, ...question] = message.split(/\s+/);
 
 	if (question.length === 0) return;
 

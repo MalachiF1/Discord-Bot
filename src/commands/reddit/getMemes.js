@@ -23,7 +23,7 @@ const getPosts = subreddit => {
 		subreddit = ['dankmemes', 'HistoryMemes', 'PrequelMemes'][Math.floor(Math.random() * 3)];
 	}
 
-	return fetch(`https://www.reddit.com/r/${subreddit}/hot/.json?limit=65`, {
+	return fetch(`https://www.reddit.com/r/${subreddit}/hot/.json?limit=50`, {
 		method: 'GET',
 	})
 		.then(async response => await response.json())

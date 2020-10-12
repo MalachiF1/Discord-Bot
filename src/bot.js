@@ -17,10 +17,9 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-	//const botUser = new GuildMember(client, client.user, message.guild);
-	//!botUser.permissionsIn(message.channel.id).hasPermission('SEND_MESSAGES')
-
-	if (message.author.bot) return;
+	const botUser = message.guild.member(client.user)
+	
+	if (message.author.bot || !botUser.permissionsIn(message.channel).has('SEND_MESSAGES')) return;
 
 	const command = message.content.trim().toLowerCase();
 	if (command === '!help') help(message.channel);
@@ -32,6 +31,6 @@ client.on('message', message => {
 	if (command === '!prequelmeme') getMeme('PrequelMemes', message.channel);
 	if (command === '!meme') getMeme('random', message.channel);
 	if (command.split(/\s+/)[0] === '!roast') roastUser(message, client.user.id);
-	if (command.split(/\s+/)[0] === '!8ball') eightBall(message);
+	if (command.split(/\s+/)[0] === '!8ball') eightBall(message.content);
 	return;
 });
