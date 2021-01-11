@@ -19,11 +19,11 @@ class ConnectFour {
 		for (let i = this.state.length - 1; i >= 0; i--) {
 			const currentRow = this.state[i];
 			if (currentRow[col] === 0) {
-				if (this.turn === this.player1.id) currentRow[col] = 1;
-				if (this.turn === this.player2.id) currentRow[col] = 2;
+				if (this.turn.id === this.player1.id) currentRow[col] = 1;
+				if (this.turn.id === this.player2.id) currentRow[col] = 2;
 				changed = true;
 				this.lastMove = [i, col, currentRow[col], this.turn];
-				this.turn = this.turn === this.player1.id ? this.player2 : this.player1;
+				this.turn = this.turn.id === this.player1.id ? this.player2 : this.player1;
 				break;
 			}
 		}
@@ -35,13 +35,7 @@ class ConnectFour {
 		let [row, col, num] = this.lastMove;
 		let counter = 0;
 
-		this.state.forEach(row => {
-			row.forEach(col => {
-				if (col === 0) counter++;
-			});
-			if (count === 42) return 'tie';
-		});
-		counter = 0;
+		if (this.state.every(row => row.indexOf(0) === -1)) return 'tie';
 
 		for (let i = -3; i <= 3; i++) {
 			if (this.state[row][col + i] === num) {

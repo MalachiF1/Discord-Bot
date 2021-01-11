@@ -19,7 +19,6 @@ const playConnectFour = async (gameChannel, host) => {
 
 	while (true) {
 		let column = await getDrop(connectFour, gameChannel);
-
 		let dropResult = connectFour.drop(column - 1);
 
 		if (!dropResult) {

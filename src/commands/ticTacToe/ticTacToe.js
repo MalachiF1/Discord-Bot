@@ -26,13 +26,7 @@ class TicTacToe {
 		let [row, col, num] = this.lastMove;
 		let counter = 0;
 
-		this.state.forEach(row => {
-			row.forEach(col => {
-				if (col === 0) counter++;
-			});
-			if (counter === 9) return 'tie';
-		});
-		counter = 0;
+		if (this.state.every(row => row.indexOf(0) === -1)) return 'tie';
 
 		for (let i = -2; i <= 2; i++) {
 			this.state[row][col + i] === num ? counter++ : (counter = 0);
