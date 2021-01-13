@@ -14,7 +14,10 @@ const help = channel => {
     \`!prequelmeme\` : sends a meme from r/PrequelMemes.\n
     \`!meme\` : sends a meme from r/dankmemes, r/HistroryMemes, or r/PrequelMeme.\n
     \`!roast [@someone]\` : makes the bot roast the person you @.\n
-    \`!8ball [question]\` : bot answers your question with one an 8ball answer.
+    \`!8ball [question]\` : bot answers your question with one an 8ball answer.\n
+    Mod Commands:\n
+    \`!kick [ID] [reason (not required)]\` : kicks the user from the server.\n
+    \`!ban [ID] [reason (not required)]\` : bans the user from the server.
     `
 		)
 		.setColor('#246224');

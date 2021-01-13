@@ -7,6 +7,8 @@ const eightBall = require('./commands/eightBall');
 const playConnectFour = require('./commands/connectFour/playConnectFour');
 const help = require('./commands/help');
 const playTicTacToe = require('./commands/ticTacToe/playTicTacToe');
+const kick = require('./commands/mod/kick');
+const ban = require('./commands/mod/ban');
 
 const client = new Client();
 
@@ -34,5 +36,7 @@ client.on('message', message => {
 	if (command === '!meme') getMeme('random', message.channel);
 	if (command.split(/\s+/)[0] === '!roast') roastUser(message, client.user.id);
 	if (command.split(/\s+/)[0] === '!8ball') eightBall(message);
+	if (command.split(/\s+/)[0] === '!kick') kick(message);
+	if (command.split(/\s+/)[0] === '!ban') ban(message);
 	return;
 });
