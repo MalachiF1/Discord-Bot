@@ -55,8 +55,6 @@ class Battleship {
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 		];
-		this.score1 = 0;
-		this.score2 = 0;
 		this.shipLocations1 = [];
 		this.shipLocations2 = [];
 	}
