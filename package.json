@@ -10,6 +10,7 @@
 	"author": "Malachi Fraenkel",
 	"license": "MIT",
 	"dependencies": {
+		"clone": "^2.1.2",
 		"discord.js": "^12.3.1",
 		"dotenv": "^8.2.0",
 		"isomorphic-fetch": "^3.0.0",

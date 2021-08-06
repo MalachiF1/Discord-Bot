@@ -42,7 +42,11 @@ const getPlayer2 = async (gameChannel, host) => {
 	gameChannel.send('Looking for second player. Use "!join connect4" to join.');
 	let messages = await gameChannel.awaitMessages(
 		message => {
-			if (message.author.bot || message.author.id === host.id || message.content.trim() !== '!join connect4') {
+			if (
+				message.author.bot ||
+				message.author.id === host.id ||
+				message.content.trim().toLowerCase() !== '!join connect4'
+			) {
 				return false;
 			}
 
@@ -61,7 +65,7 @@ const getDrop = async (connectFour, gameChannel) => {
 			if (
 				message.author.bot ||
 				(message.author.id !== connectFour.player1.id && message.author.id !== connectFour.player2.id) ||
-				message.content.trim().split(/\s+/)[0] !== '!drop'
+				message.content.trim().split(/\s+/)[0].toLowerCase() !== '!drop'
 			) {
 				return false;
 			}

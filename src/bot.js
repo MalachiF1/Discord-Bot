@@ -9,6 +9,10 @@ const help = require('./commands/help');
 const playTicTacToe = require('./commands/ticTacToe/playTicTacToe');
 const kick = require('./commands/mod/kick');
 const ban = require('./commands/mod/ban');
+const lenny = require('./commands/lenny');
+const russianRoulette = require('./commands/russianRoulette');
+const chuckNorris = require('./commands/chuckNorris');
+const playBattleship = require('./commands/battleship/playBattleship');
 
 const client = new Client();
 
@@ -34,6 +38,10 @@ client.on('message', message => {
 	if (command === '!historymeme') getMeme('HistoryMemes', message.channel);
 	if (command === '!prequelmeme') getMeme('PrequelMemes', message.channel);
 	if (command === '!meme') getMeme('random', message.channel);
+	if (command === '!lenny') lenny(message.channel);
+	if (command === '!russian roulette') russianRoulette(message);
+	if (command === '!chuck norris') chuckNorris(message.channel);
+	if (command === '!battleship') playBattleship(message.channel, message.author);
 	if (command.split(/\s+/)[0] === '!roast') roastUser(message, client.user.id);
 	if (command.split(/\s+/)[0] === '!8ball') eightBall(message);
 	if (command.split(/\s+/)[0] === '!kick') kick(message);

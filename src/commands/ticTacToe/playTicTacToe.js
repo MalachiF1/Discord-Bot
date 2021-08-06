@@ -43,7 +43,11 @@ const getPlayer2 = async (gameChannel, host) => {
 	gameChannel.send('Looking for second player. Use "!join tictactoe" to join.');
 	let messages = await gameChannel.awaitMessages(
 		message => {
-			if (message.author.bot || message.author.id === host.id || message.content.trim() !== '!join tictactoe') {
+			if (
+				message.author.bot ||
+				message.author.id === host.id ||
+				message.content.trim().toLowerCase() !== '!join tictactoe'
+			) {
 				return false;
 			}
 
@@ -62,7 +66,7 @@ const getPlay = async (ticTacToe, gameChannel) => {
 			if (
 				message.author.bot ||
 				(message.author.id !== ticTacToe.player1.id && message.author.id !== ticTacToe.player2.id) ||
-				message.content.trim().split(/\s+/)[0] !== '!play'
+				message.content.trim().split(/\s+/)[0].toLowerCase() !== '!play'
 			) {
 				return false;
 			}
